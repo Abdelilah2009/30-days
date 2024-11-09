@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+}
+
+:root{
+    --main-color: #FF6800;
+}
+
+nav{
+    position: fixed;
+    width: 100%;
+    height: 90px;
+    background: #f0f8ff;
+    box-shadow: 0 2px 20px #000000a2;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Poppins',sans-serif;
+    user-select: none;
+    opacity: 1;
+    animation: to-bottom .8s ease forwards;
+}
+
+nav .logo img{
+    height: 50px;
+}
+
+nav ul{
+    list-style: none;
+    display: flex;
+    gap: 50px;
+}
+
+nav ul li a{
+    text-transform: capitalize;
+    text-decoration: none;
+    color: #000;
+    font-size: 1.1rem;
+    transition: .3s;
+}
+
+nav ul li .active,
+nav ul li a:hover{
+    color: var(--main-color);
+}
+
+nav .btn button{
+    padding: 15px 20px;
+    background-color: var(--main-color);
+    color: #ffffff;
+    border: 2px solid var(--main-color);
+    border-radius: 4px;
+    box-shadow: 0px 2px 10px 2px var(--main-color);
+    text-transform: capitalize;
+    transition: .3s;
+}
+
+nav .btn button:hover{
+    background-color: transparent;
+    box-shadow: 0px 2px 10px 2px #000;
+    border: 2px solid #000;
+    color: #000;
+}
+
+nav .btn button:active{
+    transform: scale(1.1);
+}
+
+.mobile{
+    display: none;
+}
+
+
+
+
+@media screen and (max-width: 800px) {
+
+    nav{
+        display: flex;
+        justify-content: space-between;
+        padding: 0px  50px 0px;
+        overflow: hidden;
+    }
+
+    nav .btn{
+        display: flex;
+    }
+
+    nav ul{
+        padding-top: 80vh;
+        flex-direction: column;
+        display: none;
+    }
+
+    
+    .mobile{
+        display: flex;
+        font-size: 2rem;
+        align-items: center;
+        padding-left: 50px;
+        
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes to-bottom{
+    0%{
+        opacity: 0;
+        transform: translateY(-50%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
