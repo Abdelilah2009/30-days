@@ -4,11 +4,15 @@
     margin: 0;
     padding: 0;
     /* box-sizing: border-box; */
+    text-decoration: none;
+    list-style: none;
+
 }
 
 :root{
     --main-color: #FF6800;
 }
+
 
 nav{
     position: fixed;
@@ -43,69 +47,33 @@ nav ul li a{
     transition: .3s;
 }
 
+
 nav ul li .active,
 nav ul li a:hover{
     color: var(--main-color);
 }
 
-nav .btn button{
+nav button{
     padding: 15px 20px;
     background-color: var(--main-color);
     color: #ffffff;
     border: 2px solid var(--main-color);
     border-radius: 4px;
-    box-shadow: 0px 2px 10px 2px var(--main-color);
     text-transform: capitalize;
     transition: .3s;
 }
 
-nav .btn button:hover{
-    background-color: transparent;
-    box-shadow: 0px 2px 10px 2px #000;
-    border: 2px solid #000;
+nav button:hover{
+    box-shadow: 0px 2px 10px 2px var(--main-color);
+    border: 2px solid #CF5400;
     color: #000;
 }
 
-nav .btn button:active{
+nav button:active{
     transform: scale(1.1);
 }
 
-.mobile{
-    display: none;
-}
 
-
-
-
-@media screen and (max-width: 800px) {
-
-    nav{
-        display: flex;
-        justify-content: space-between;
-        padding: 0px  50px 0px;
-        overflow: hidden;
-    }
-
-    nav .btn{
-        display: flex;
-    }
-
-    nav ul{
-        padding-top: 80vh;
-        flex-direction: column;
-        display: none;
-    }
-
-    
-    .mobile{
-        display: flex;
-        font-size: 2rem;
-        align-items: center;
-        padding-left: 50px;
-        
-    }
-
-}
 
 
 
