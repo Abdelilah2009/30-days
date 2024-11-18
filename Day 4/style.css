@@ -4,6 +4,7 @@
     font-family: "Poppins", sans-serif;
     text-decoration: none;
     box-sizing: border-box;
+    font-family: "Cairo", sans-serif;
 }
 
 .btn-EN{
@@ -29,6 +30,7 @@
     color: #000000;
     font-size: 1.1rem;
     font-weight: 600;
+    font-family: "Poppins", sans-serif;
 }
 
 .btn-AR{
@@ -58,20 +60,30 @@
 
 .tl-c{
     text-align: center;
-    position: relative;
     padding-top: 100px;
     font-weight: 900;
     font-size: 2rem;
+    padding-bottom: 50px;
+
 }
 
 .l9awa3id .item-10 .item{
     display: flex;
-    gap: 20px;
-    text-align: center;
+    gap: 40px;
+    text-align: right;
     justify-content: center;
-    padding-top: 50px;
+    font-size: 1.3rem;
+    padding-bottom: 10px;
 }
 
+.l9awa3id .item-10 .item p{
+    width: 50%;
+}
+
+.l9awa3id .item-10 .item span{
+    font-weight: 900;
+    width: 10%;
+}
 
 
 
