@@ -56,13 +56,21 @@
     font-weight: 600;
 }
 
+.tl-c{
+    text-align: center;
+    position: relative;
+    padding-top: 100px;
+    font-weight: 900;
+    font-size: 2rem;
+}
 
-
-
-
-
-
-
+.l9awa3id .item-10 .item{
+    display: flex;
+    gap: 20px;
+    text-align: center;
+    justify-content: center;
+    padding-top: 50px;
+}
 
 
 
