@@ -7,6 +7,28 @@
     font-family: "Cairo", sans-serif;
 }
 
+:root{
+    --base-color: white;
+    --base-variant: #e8e9ed;
+    --text-color: #111528;
+}
+
+.darkmode{
+    --base-color: #070b1d;
+    --base-variant: #101425;
+    --text-color: #ffffff;
+}
+
+body{
+    min-height: 100vh;
+    background-color: var(--base-color);
+    color: var(--text-color);
+}
+
+p{
+    color: var(--secondary-text);
+}
+
 .btn-EN{
     position: absolute;
     top: 2rem;
@@ -83,44 +105,14 @@
 
 .l9awa3id .item span{
     font-weight: 900;
-    width: 10%;
+    width: 20%;
 }
 
 .l9awa3id .item-11{
     padding-top: 60px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         /* EN  */
-
 
 .tl-c-EN{
     text-align: center;
@@ -150,22 +142,45 @@
     width: 20%;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+button{
+    border: none;
+    padding: .8em 2em;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 4px;
+    font: inherit;
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+}
+.cta-button{
+    background-color: var(--accent-color);
+}
+#theme-switch{
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: var(--base-variant);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+}
+#theme-switch i{
+    fill: #000000;
+}
+#theme-switch i:first-child{
+    color: #000000;
+}
+#theme-switch i:last-child{
+    display: none;
+}
+.darkmode #theme-switch i:first-child{
+    display: none;
+}
+.darkmode #theme-switch i:last-child{
+    display: block;
+}
