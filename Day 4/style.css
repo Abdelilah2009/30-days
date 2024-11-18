@@ -67,7 +67,7 @@
 
 }
 
-.l9awa3id .item-10 .item{
+.item{
     display: flex;
     gap: 40px;
     text-align: right;
@@ -76,13 +76,18 @@
     padding-bottom: 10px;
 }
 
-.l9awa3id .item-10 .item p{
+.item p{
     width: 50%;
+    font-weight: 500;
 }
 
-.l9awa3id .item-10 .item span{
+.item span{
     font-weight: 900;
     width: 10%;
+}
+
+.item-11{
+    padding-top: 60px;
 }
 
 
