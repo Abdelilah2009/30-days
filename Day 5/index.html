@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="abdelilah eddalili">
+    <title>Preloader 1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+        body {
+            background: #000;
+        }
+
+        .preloader {
+            position: fixed;
+            background-color: #1c1a1d;
+            background-position: center center;
+            background-repeat: no-repeat;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 9991;
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .preloader__image {
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+            -webkit-animation-name: flipInY;
+            animation-name: flipInY;
+            -webkit-animation-duration: 2s;
+            animation-duration: 2s;
+            -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 60px auto;
+            width: 100%;
+            height: 100%;
+        }
+
+        /*--------------------------------------------------------------
+# Custom Cursor
+--------------------------------------------------------------*/
+        .custom-cursor__cursor {
+            width: 25px;
+            height: 25px;
+            border-radius: 100%;
+            border: 1px solid var(--solinom-base, #CBA36B);
+            -webkit-transition: all 200ms ease-out;
+            transition: all 200ms ease-out;
+            position: fixed;
+            pointer-events: none;
+            left: 0;
+            top: 0;
+            -webkit-transform: translate(calc(-50% + 5px), -50%);
+            transform: translate(calc(-50% + 5px), -50%);
+            z-index: 999991;
+        }
+
+        .custom-cursor__cursor-two {
+            width: 10px;
+            height: 10px;
+            border-radius: 100%;
+            background-color: var(--solinom-base, #CBA36B);
+            opacity: 0.3;
+            position: fixed;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            -webkit-transition: width 0.3s, height 0.3s, opacity 0.3s;
+            transition: width 0.3s, height 0.3s, opacity 0.3s;
+            z-index: 999991;
+        }
+
+        .custom-cursor__hover {
+            background-color: var(--solinom-base, #CBA36B);
+            opacity: 0.4;
+        }
+
+        .custom-cursor__innerhover {
+            width: 25px;
+            height: 25px;
+            opacity: 0.4;
+        }
+    </style>
+</head>
+
+<body class="custom-cursor">
+
+    <div class="custom-cursor__cursor"></div>
+    <div class="custom-cursor__cursor-two"></div>
+
+    <div class="preloader">
+        <div class="preloader__image" style="background-image: url(loader.png);"></div>
+    </div>
+    <!-- /.preloader -->
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flipster/1.1.2/jquery.flipster.min.js"></script>
+    <script>
+        (function ($) {
+            "use strict";
+
+            // custom coursor
+            if ($(".custom-cursor").length) {
+                var cursor = document.querySelector(".custom-cursor__cursor");
+                var cursorinner = document.querySelector(".custom-cursor__cursor-two");
+                var a = document.querySelectorAll("a");
+
+                document.addEventListener("mousemove", function (e) {
+                    var x = e.clientX;
+                    var y = e.clientY;
+                    cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`;
+                });
+
+                document.addEventListener("mousemove", function (e) {
+                    var x = e.clientX;
+                    var y = e.clientY;
+                    cursorinner.style.left = x + "px";
+                    cursorinner.style.top = y + "px";
+                });
+
+                document.addEventListener("mousedown", function () {
+                    cursor.classList.add("click");
+                    cursorinner.classList.add("custom-cursor__innerhover");
+                });
+
+                document.addEventListener("mouseup", function () {
+                    cursor.classList.remove("click");
+                    cursorinner.classList.remove("custom-cursor__innerhover");
+                });
+
+                a.forEach((item) => {
+                    item.addEventListener("mouseover", () => {
+                        cursor.classList.add("custom-cursor__hover");
+                    });
+                    item.addEventListener("mouseleave", () => {
+                        cursor.classList.remove("custom-cursor__hover");
+                    });
+                });
+            }
+
+            if ($(".contact-form-validated").length) {
+                $(".contact-form-validated").validate({
+                    // initialize the plugin
+                    rules: {
+                        name: {
+                            required: true
+                        },
+                        email: {
+                            required: true,
+                            email: true
+                        },
+                        message: {
+                            required: true
+                        },
+                        subject: {
+                            required: true
+                        }
+                    },
+                    submitHandler: function (form) {
+                        // sending value with ajax request
+                        $.post(
+                            $(form).attr("action"),
+                            $(form).serialize(),
+                            function (response) {
+                                $(form).parent().find(".result").append(response);
+                                $(form).find('input[type="text"]').val("");
+                                $(form).find('input[type="email"]').val("");
+                                $(form).find("textarea").val("");
+                            }
+                        );
+                        return false;
+                    }
+                });
+            }
+
+
+            // window load event
+            $(window).on("load", function () {
+                if ($(".preloader").length) {
+                    $(".preloader").fadeOut();
+                }
+                thmOwlInit();
+                thmTinyInit();
+                priceFilter();
+                solinomSlickInit();
+                if ($(".circle-progress").length) {
+                    $(".circle-progress").appear(function () {
+                        let circleProgress = $(".circle-progress");
+                        circleProgress.each(function () {
+                            let progress = $(this);
+                            let progressOptions = progress.data("options");
+                            progress.circleProgress(progressOptions);
+                        });
+                    });
+                }
+            });
+
+        })(jQuery);
+
+    </script>
+
+</body>
+
+</html>
